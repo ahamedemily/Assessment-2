@@ -22,8 +22,15 @@
 */
 
 //CODE HERE
-
-
+// // function greetUser(username){
+//     username = String(username)
+//     console.log(`Welcome back,${username}`)
+// }
+// greetUser(`Andrew`)
+const greetUser = username => {
+    return ('Welcome back,'+ username)
+}
+console.log(greetUser('Andrew'))
 
 
 
@@ -51,8 +58,26 @@ const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206]
 
 //CODE HERE
 
+function canWeDeliver(zipCode){
+let notInDeliveryZone = false
+for (let i = 0; i < deliveryAreaZipCodes.length; i++)
+{
+if(zipCode === deliveryAreaZipCodes[i]){
+    console.log(`You're in our delivery zone`)
+    return
+}
+    else
+    {
+   notInDeliveryZone = true
+    }
+}
+if(notInDeliveryZone == true){
 
-
+console.log(`Sorry, we can't deliver to that address`)
+    
+}
+}
+canWeDeliver(85203)
 /* 
     Problem 2 Continued
 
@@ -72,7 +97,16 @@ const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206]
 
 // CODE HERE
 
-
+function canWeDeliverTwo(zipCode) {
+    var deliveryAreaZipCodes = [85202, 85204, 85203, 85213, 85206];
+    return deliveryAreaZipCodes.includes(zipCode);
+}
+let zipCodeTest = canWeDeliverTwo(84)
+if (zipCodeTest == true) {
+    console.log (`You're in our delivery zone!`)
+}else{
+    console.log(`Sorry, we can't deliver to that address`)
+}
 //////////////////PROBLEM 3////////////////////
 /* 
     Below is an array of objects that have some
@@ -91,10 +125,10 @@ const deals = [
         title: '15% Off!', 
         desc: 'Applied to your entire order when you spend $30 or more'
     }, 
-    {
-        title: 'Free Kids Meal with 2 Regular Entrees', 
-        desc: '   This deal lasts until the end of March! '
-    }
+   {
+      title: 'Free Kids Meal with 2 Regular Entrees', 
+       desc: 'This deal lasts until the end of March!'
+   }
 ]
 
 /*
@@ -107,8 +141,23 @@ const deals = [
 */
 
 //CODE HERE
-
-
+for(let i= 0; i < deals.length; i++){
+    if (deals[i].title === `15% Off!`){
+        deals[i].title = `10% Off!`
+       // deals[i].title.replace('15','10')
+        console.log(deals[i].title)
+    }
+}
+//console.log(deals)
+//const myStr = 'title: `15% Off!`'
+//console.log(myStr.replace(/\d+/, "10"));
+//console.log(deals[deals.indexOf('15% Off!')]);
+//const {title} = deals;
+//console.log(title)
+//console.log (deals)
+//const newDeals = deals.title.replace("15", "10")
+//console.log(newDeals)
+//console.log(deals.replace('15% Off!','10% Off!'));
 
 /*
     The restaurant is going to continue its
@@ -124,3 +173,12 @@ const deals = [
 */
 
 //CODE HERE
+
+for(let i= 0; i < deals.length; i++){
+    if (deals[i].desc === `This deal lasts until the end of March!`)
+    {
+        deals[i].desc = `This deal lasts until the end of April!`
+        console.log(deals[i].desc)
+    }
+   // console.log(deals[i].desc)
+}

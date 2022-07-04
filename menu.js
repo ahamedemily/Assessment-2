@@ -31,8 +31,15 @@
 */
 
 //CODE HERE
-
-
+let pizza = {
+    name: 'cheese pizza',
+    price: '$12.99',
+    category: 'entree',
+    popularity: '#1',
+    rating : '4.9',
+    tags: ['gluten free', 'kids' , 'Toppings', 'Daily Deals']
+}
+console.log(pizza)
 
 //////////////////PROBLEM 2////////////////////
 /* 
@@ -43,7 +50,7 @@
 */
 
 //CODE HERE
-
+console.log(pizza.popularity)
 
 /*
     Second, log the second tag in your pizza's
@@ -53,7 +60,7 @@
 */
 
 //CODE HERE
-
+console.log(pizza.tags[1])
 
 /*
     Third, destructure the price off of the
@@ -63,7 +70,8 @@
 */
 
 //CODE HERE
-
+const price = pizza.price
+console.log(price)
 
 /*
     Fourth, and last, destructure the category
@@ -73,7 +81,8 @@
 */
 
 //CODE HERE
-
+const category = pizza.category
+console.log(category)
 
 //////////////////PROBLEM 3////////////////////
 /* 
@@ -89,7 +98,45 @@
 
 //CODE HERE
 
+let foodArr = 
+    [{name:'pasta',
+    price:25, 
+    popularity: 99,
+    rating: 5,
+    tags:['entree','vegan', 'italian', 'wine']},
 
+    {name:'burger',
+    price:16, 
+    popularity: 87,
+    rating: 4.5,
+    tags:['entree','gluten free', 'vegan']},
+
+    {name:'hotdog',
+    price:10, 
+    popularity:77,
+    rating: 4.4,
+    tags:['entree','kids','vegan']},
+
+    {name:'sushi',
+    price:18, 
+    popularity:100,
+    rating: 5,
+    tags:['entree', 'appetizer','seafood','healthy']},
+
+    {name:'lobster',
+    price:29, 
+    popularity:98,
+    rating: 5,
+    tags:['entree','seafood']}
+]
+
+//console.log(foodArr)
+
+// function callbackTester(callback, param1, param2) {
+//     callback(param1, param2);
+//   }
+
+ 
 
 //////////////////PROBLEM 4////////////////////
 /* 
@@ -105,8 +152,13 @@
 
 //CODE HERE
 
-// const filteredFood = foodArr.filter(/* CALLBACK HERE */)
+// const filteredFood = foodArr.filter(/* CALLBACK HERE */) 
 
+const filteredFood = foodArr.filter((arr) => {
+    return arr.tags.includes('vegan')
+})
+console.log('*****vegan check******')
+console.log(filteredFood)
 
 
 //////////////////PROBLEM 5////////////////////
@@ -149,8 +201,63 @@
 */
 
 //CODE HERE
-
-
+function filterByProperty (property, number, type)
+{
+    if (type === 'above')
+    {
+        if (property ==='price')
+        {
+            const filteredArr = foodArr.filter((fa) => { 
+                return fa.price > number})
+            
+            console.log(`******* Filter by price > ${number}  ********`)
+            console.log(filteredArr)
+        }
+        if (property ==='rating')
+        {
+            const filteredArr = foodArr.filter((fa) => { 
+                return fa.rating > number})
+            
+            console.log(`******* Filter by rating > ${number}>>  ********`)
+            console.log(filteredArr)
+        }
+        if (property ==='popularity')
+        {
+            const filteredArr = foodArr.filter((fa) => { 
+                return fa.popularity > number})
+            
+            console.log(`******* Filter by popularity > ${number} ********`)
+            console.log(filteredArr)
+        }
+    }
+    if (type === 'below')
+    {
+        if (property ==='price')
+        {
+            const filteredArr = foodArr.filter((fa) => { 
+                return fa.price < number})
+            
+            console.log(`******* Filter by price < ${number} ********`)
+            console.log(filteredArr)
+        }
+        if (property ==='rating')
+        {
+            const filteredArr = foodArr.filter((fa) => { 
+                return fa.rating < number})
+            
+            console.log(`******* Filter by rating < ${number} ********`)
+            console.log(filteredArr)
+        }
+        if (property ==='popularity')
+        {
+            const filteredArr = foodArr.filter((fa) => { 
+                return fa.popularity < number})
+            
+            console.log(`******* Filter by popularity < ${number} ********`)
+            console.log(filteredArr)
+        }
+    }
+}
 /*
     Invoke the `filterByProperty` function passing
     in a value for each paramter.
@@ -159,3 +266,9 @@
 */
 
 //CODE HERE
+console.log(filterByProperty ('price', 15, 'below'))
+console.log(filterByProperty ('price', 10, 'above'))
+console.log(filterByProperty ('rating', 4.5, 'below'))
+console.log(filterByProperty ('rating', 4.5, 'above'))
+console.log(filterByProperty ('popularity', 80, 'below'))
+console.log(filterByProperty ('popularity', 80, 'above'))
